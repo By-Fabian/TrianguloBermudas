@@ -8,5 +8,6 @@
 #include <iostream>
 #include <string>""
 #include <cmath>
+#include <vector>
 using namespace std;
 #endif //TRIANGULOBERMUDAS_TIPOS_G_H
