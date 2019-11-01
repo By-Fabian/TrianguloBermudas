@@ -3,3 +3,13 @@
 //
 
 #include "orden.h"
+
+void orden::calcular_ruta(producto_t *pproducto, robot_t *probot) {
+    posición robot = m_robot->getUbicacion();
+    posición slot = m_producto->get_ubicacion();
+}
+
+orden::orden(producto_t *p_producto, robot_t *probot){
+    m_producto=p_producto;
+    m_robot=probot;
+}

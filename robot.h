@@ -11,7 +11,7 @@ typedef bool t_button;              //Tipo Button hace referencia a True(1) o Fa
 typedef unsigned t_no_negative;     //Tipo T_no_negative hace referecnia a valores no negativos.
 typedef double t_decimals;          //Tipo t_decimales hace referencia a valores decimales.
 
-class robot {
+class robot_t {
 private:
     t_button pr_disponibilidad;          //Disponibilidad: Ocupado(0) y Libre (1).
     vector<t_no_negative>pr_home[3];     //Home(Direccion): (Filas, Columnas y Profundidad).

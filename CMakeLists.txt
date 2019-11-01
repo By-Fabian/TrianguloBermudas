@@ -3,4 +3,4 @@ project(TrianguloBermudas)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(TrianguloBermudas main.cpp producto.cpp producto.h tipos_g.h orden.cpp orden.h robot.cpp robot.h)
+add_executable(TrianguloBermudas main.cpp producto.cpp producto.h tipos_g.h orden.cpp orden.h robot.cpp robot.h slot.cpp slot.h)
