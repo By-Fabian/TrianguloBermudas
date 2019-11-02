@@ -6,7 +6,7 @@
 #define TRIANGULOBERMUDAS_SLOT_H
 
 
-class slot {
+class slot_t {
 
 };
 
