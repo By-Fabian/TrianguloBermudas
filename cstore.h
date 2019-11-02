@@ -5,6 +5,8 @@
 #ifndef TRIANGULOBERMUDAS_CSTORE_H
 #define TRIANGULOBERMUDAS_CSTORE_H
 
+#include "tipos_g.h"
+
 typedef bool t_buttom;
 typedef unsigned t_num_product;
 typedef double t_decimal;

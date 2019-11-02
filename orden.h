@@ -8,6 +8,8 @@
 #include "tipos_g.h"
 #include "producto.h"
 #include "robot.h"
+#include "cstore.h"
+
 typedef unsigned posicion;
 class orden {
 private:
