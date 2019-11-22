@@ -6,7 +6,7 @@
 #define TRIANGULOBERMUDAS_TIPOS_G_H
 
 #include <iostream>
-#include <string>""
+#include <string>
 #include <cmath>
 #include <vector>
 using namespace std;
