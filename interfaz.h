@@ -5,10 +5,21 @@
 #ifndef TRIANGULOBERMUDAS_INTERFAZ_H
 #define TRIANGULOBERMUDAS_INTERFAZ_H
 
+#include "tipos_g.h"
+//#include "ALMACEN.h"
 
-class interfaz {
-
-};
+void start();
+void triangulodelasbermudas();
+void crear_almacen();
+void agregarproductoalmacen();
+void retirarproductoalmacen();
+void tipodeproducto();
+void estadoslot();
+void menu();
+void mostraralmacen();
+void operacionconrobots();
+void reporte();
+void salir();
 
 
 #endif //TRIANGULOBERMUDAS_INTERFAZ_H
