@@ -125,7 +125,7 @@ void operacionconrobots() {
 }
 
 void reporte() {
-    
+
 
 }
 
