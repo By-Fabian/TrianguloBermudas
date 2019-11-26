@@ -22,7 +22,12 @@ private:
     vector<c_Producto*> productos;
 public:
     c_Slot(t_cantidad _nvl){niveles=_nvl;};
-    void set_niveles(t_cantidad _niv){niveles=_niv;}
+    vector<c_Producto*> get_vector(){return productos;}; //f
+    void set_niveles(t_cantidad _niv){niveles=_niv;};
+    void add_productos();//añado mña a las 10 porque en el editor se va ha ver feo
+    void quitar_productos();//f
+    
+    
 };
 class c_Robot{
 private:
@@ -35,10 +40,12 @@ private:
     t_product product_using;
     t_num priori;
     t_state estado;
+    //añadir un puntero a slot
 public:
     c_Robot(t_entero fila){num_fila=fila;}
     t_code get_code(){ return codigo;};
     void set_xi(t_pos en);
+    
 };
 class c_Almacen {
 private:
@@ -55,6 +62,9 @@ public:
     t_entero get_nivel();
     t_entero get_columnas();
     void mostrar_almacen(m_fil matriz);
+    void add_robots();
+    void add_slots();
+    void darle_mision_a_robot();
 };
 
 #endif //MEEEEPRJJT_ALMACEN_H
