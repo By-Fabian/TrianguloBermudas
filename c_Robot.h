@@ -24,6 +24,7 @@ public:
     void set_pos(t_pos _x, t_pos _y){enx_i=_x; eny_i=_y;}
     void set_pro(c_Producto &pro01){product_using=pro01;};
     void traer_pro(t_product pro01);
+    void llevar_pro(t_entero _y,t_entero _x);
     void regresar_home();
 };
 

@@ -16,3 +16,7 @@ void c_Robot::traer_pro(t_product pro01) {
 void c_Robot::regresar_home() {
 
 }
+
+void c_Robot::llevar_pro(t_entero _y, t_entero _x) {
+
+}

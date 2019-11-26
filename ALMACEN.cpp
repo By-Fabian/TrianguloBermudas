@@ -69,7 +69,7 @@ c_Slot::c_Slot(t_cantidad _nvl):niveles(_nvl){
 };
 
 void c_Slot::almacenar(c_Robot &robo01) {
-    productos.push_back(robo01.get_producto());
+    productos.emplace_back(robo01.get_producto().get_num_product());
     set_super("[R]");
 }
 

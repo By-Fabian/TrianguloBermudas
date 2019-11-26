@@ -14,6 +14,6 @@ public:
     c_Producto (){};
     ~c_Producto(){};
     c_Producto(t_product _pro){product=_pro;}
-    t_product get_product(){return product;}
+    t_product get_num_product(){return product;}
 };
 #endif //MEEEEPRJJT_C_PRODUCTO_H
