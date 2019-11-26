@@ -28,10 +28,7 @@ c_Slot c_Almacen::get_slot(t_entero fila, t_entero colum) {
 }
 
 void c_Almacen::mostrar_almacen() {
-    for (int i = 0; i < num_fil; i++) {
-        if (i == 0 || i == ( num_fil) / 2 || i == num_fil - 1)
-            slots_m[i][0].set_super("[R]");
-    }
+
     int le = 0;
     cout<<endl;
     for(int k=0;k <num_col;k++){
@@ -44,7 +41,13 @@ void c_Almacen::mostrar_almacen() {
     for (int i = 0; i < num_fil; i++) {
         cout << setw(4) << i;
         for (int j = 0; j < num_col; j++) {
-            cout << setw(4) << slots_m[i][j].get_superf();
+            if(j==0)
+                if (i == 0 || i == ( num_fil) / 2 || i == num_fil - 1)
+                    cout << setw(4) <<robots[1].get_sup();
+                else
+                    cout << setw(4) << slots_m[i][j].get_superf();
+            else
+                cout << setw(4) << slots_m[i][j].get_superf();
         }cout<<endl;
     }cout<<endl;
 }
@@ -68,8 +71,8 @@ c_Slot::c_Slot(t_cantidad _nvl):niveles(_nvl){
     }
 };
 
-void c_Slot::almacenar(c_Robot &robo01) {
-    productos.emplace_back(robo01.get_producto().get_num_product());
+void c_Slot::almacenar(c_Robot _robo01){
+    productos.emplace_back(_robo01.get_producto().get_num_product());
     set_super("[R]");
 }
 

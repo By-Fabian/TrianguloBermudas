@@ -15,13 +15,14 @@ private:
     c_Producto produ;
     vector<c_Producto> productos;
     string super="*";
+    c_Robot robot01;
 public:
     c_Slot(){};
     c_Slot(t_cantidad _nvl);
     void set_niveles(t_cantidad _niv){niveles=_niv;}
     void set_super(string _super){super=_super;}
-    void almacenar(c_Robot &robo01);
-    void quitar(c_Robot robo01);
+    void almacenar(c_Robot _robo01);
+    void quitar(c_Robot _robo01);
     string get_superf(){ return super;};
 };
 
