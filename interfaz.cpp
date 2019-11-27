@@ -153,9 +153,10 @@ void retirarproductoalmacen(c_Robot rob,c_Almacen alm) {
 
 void tipodeproducto(unsigned int n, unsigned int k, c_Almacen alm) {
     c_Slot sl = alm.get_slot(n,k);
-
+    cout<<sl.get_superf()<<endl;
 }
 
-void estadoslot(c_Almacen alm) {
-
+void estadoslot(c_Almacen alm, unsigned int k, unsigned int n) {
+    c_Slot sl = alm.get_slot(n,k);
+    cout<<"Hay"<<sl.get_vector().size()<<"productos en el slot"<<endl; //implementar get vector
 }
