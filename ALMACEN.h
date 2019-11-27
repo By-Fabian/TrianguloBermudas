@@ -19,7 +19,7 @@ public:
     c_Slot(t_cantidad _nvl);
     void set_niveles(t_cantidad _niv){niveles=_niv;}
     void set_super(string _super){super=_super;}
-    void quitar_producto(c_Robot _robo01);
+    void quitar(c_Robot _robo01);
     void add_producto(t_product _product);
     string get_superf(){ return super;};
     string get_producto(){ return productos[1].get_num_product();}

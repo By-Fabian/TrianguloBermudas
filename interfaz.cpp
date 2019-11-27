@@ -3,6 +3,8 @@
 //
 
 #include "interfaz.h"
+#include "c_Robot.h"
+#include "ALMACEN.h"
 
 
 void start() {
@@ -125,26 +127,36 @@ void operacionconrobots() {
 }
 
 void reporte() {
-
-
 }
 
 void salir() {
 
 }
 
-void agregarproductoalmacen() {
+void agregarproductoalmacen(c_Robot rob,c_Almacen alm) {
+    //pedir filas y columna
+    unsigned int n,k;
+    cout<<"INGRESE FILA DEL SLOT:"<<endl;cin>>n;
+    cout<<"INGRESE COLUMNA DEL SLOT: "<<endl;cin>>k;
+    c_Slot sl = alm.get_slot(n,k);
+    sl.almacenar(rob);
 
 }
 
-void retirarproductoalmacen() {
-
+void retirarproductoalmacen(c_Robot rob,c_Almacen alm) {
+    unsigned int n,k;
+    cout<<"INGRESE FILA DEL SLOT:"<<endl;cin>>n;
+    cout<<"INGRESE COLUMNA DEL SLOT: "<<endl;cin>>k;
+    c_Slot sl = alm.get_slot(n,k);
+    sl.quitar(rob);
 }
 
-void tipodeproducto() {
-
+void tipodeproducto(unsigned int n, unsigned int k, c_Almacen alm) {
+    c_Slot sl = alm.get_slot(n,k);
+    cout<<sl.get_superf()<<endl;
 }
 
-void estadoslot() {
-
+void estadoslot(c_Almacen alm, unsigned int k, unsigned int n) {
+    c_Slot sl = alm.get_slot(n,k);
+    cout<<"Hay"<<sl.get_vector().size()<<"productos en el slot"<<endl; //implementar get vector
 }

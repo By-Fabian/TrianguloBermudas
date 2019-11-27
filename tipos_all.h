@@ -4,7 +4,6 @@
 
 #ifndef MEEEEPRJJT_TIPOS_ALL_H
 #define MEEEEPRJJT_TIPOS_ALL_H
-#include <xstring>
 #include <vector>
 #include <cstdlib>
 #include <iomanip>

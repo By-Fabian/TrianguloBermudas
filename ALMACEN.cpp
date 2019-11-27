@@ -125,3 +125,7 @@ void c_Slot::add_producto(t_product _product) {
 void c_Slot::quitar_producto(c_Robot robo01) {
     productos.erase(productos.begin());
 }
+
+void c_Slot::almacenar(c_Robot _robo01){
+    productos.emplace_back(_robo01.get_producto().get_num_product());
+    set_super("[R]");}
