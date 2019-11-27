@@ -8,6 +8,7 @@
 #include <cstdlib>
 #include <iomanip>
 #include <string>
+#include <stdlib.h>
 
 class c_Producto;
 class c_Slot;
