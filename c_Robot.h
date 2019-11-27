@@ -20,7 +20,8 @@ public:
     c_Robot(t_entero fila);
     c_Robot(){};
     void set_code(t_code _code){code=_code;}
-    t_code get_code(){ return code;};
+    t_code get_code(){ return code;}
+    ;
     c_Producto get_producto(){return  product_using;};
     void set_pos(t_pos _x, t_pos _y){enx_i=_x; eny_i=_y;}
     void set_pro(c_Producto &pro01){product_using=pro01;};
