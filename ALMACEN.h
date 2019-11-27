@@ -25,6 +25,7 @@ public:
     void add_producto(t_product _product);
     string get_superf(){ return super;};
     string get_producto(){ return productos[1].get_num_product();}
+    t_cantidad get_espacio_uso();
 };
 
 class c_Almacen {
@@ -46,6 +47,7 @@ public:
     t_pos buscar_producto_y(t_product _pro);
     void mostrar_almacen();
     void actualizar_almacen();
+    void mostrar_ruta(c_Robot _robo01);
 };
 
 #endif //MEEEEPRJJT_ALMACEN_H
