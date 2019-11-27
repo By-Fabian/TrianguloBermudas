@@ -28,7 +28,6 @@ c_Slot c_Almacen::get_slot(t_entero fila, t_entero colum) {
 }
 
 void c_Almacen::mostrar_almacen() {
-
     int le = 0;
     cout<<endl;
     for(int k=0;k <num_col;k++){
@@ -43,7 +42,7 @@ void c_Almacen::mostrar_almacen() {
         for (int j = 0; j < num_col; j++) {
             if(j==0)
                 if (i == 0 || i == ( num_fil) / 2 || i == num_fil - 1)
-                    cout << setw(4) <<robots[1].get_sup();
+                    cout << setw(4) <<robots[2].get_sup();
                 else
                     cout << setw(4) << slots_m[i][j].get_superf();
             else
@@ -53,17 +52,39 @@ void c_Almacen::mostrar_almacen() {
 }
 
 c_Robot c_Almacen::get_num_robot(t_entero _rob) {
+    robots[_rob-1].set_code(_rob);
     return robots[_rob-1];
 }
 
 void c_Almacen::actualizar_almacen() {
-    for(int i=0; i<num_fil;i++){
-        for(int j=0;j<num_col;j++){
-            cout<<setw(4)<<slots_m[i][j].get_superf();
+    int le = 0;
+    for(int k=0;k <num_col;k++){
+        if(k==0){
+            cout<<setw(4)<<"";
+        }
+        cout<<setw(4)<<le;
+        le = le + 1;
+    }cout<<endl;
+    int m=0;
+    for (int i = 0; i < num_fil; i++) {
+        cout << setw(4) << i;
+        for (int j = 0; j < num_col; j++) {
+            if(j==0)
+                if (i == 0 || i == ( num_fil) / 2 || i == num_fil - 1)
+                    cout << setw(4) <<robots[m++].get_sup();
+                else
+                    cout << setw(4) << slots_m[i][j].get_superf();
+            else
+                cout << setw(4) << slots_m[i][j].get_superf();
         }cout<<endl;
-    }
+    }cout<<endl;
 }
 
+void c_Almacen::almacenar(c_Robot _robo01, t_pos _y, t_pos _x){
+    slots_m[_y][_x].add_producto(_robo01.get_producto().get_num_product());
+    slots_m[_y][_x].set_super(_robo01.get_sup());
+    robots[_robo01.get_code()].set_sup("[ ]");
+}
 
 //CPP DEL SLOT
 c_Slot::c_Slot(t_cantidad _nvl):niveles(_nvl){
@@ -71,11 +92,9 @@ c_Slot::c_Slot(t_cantidad _nvl):niveles(_nvl){
     }
 };
 
-void c_Slot::almacenar(c_Robot _robo01){
-    productos.emplace_back(_robo01.get_producto().get_num_product());
-    set_super("[R]");
+void c_Slot::add_producto(t_product _product) {
+    productos.emplace_back(_product);
 }
-
 
 void c_Slot::quitar(c_Robot robo01) {
     productos.erase(productos.begin());

@@ -20,14 +20,11 @@ int main() {
     cout<<"Ingresa a donde lo quieres ingresar en 'Y' :";cin>>pos_y;
     cout<<"Ingresa a donde lo quieres ingresar en 'X' :";cin>>pos_x;
     //Creo un objeto robot para almacenar al robot del almacen
-    c_Robot R01 = a1.get_num_robot(rob);
     //Ingreso al produto en la clase robot
     //R01.set_pro(p01);
     a1.get_num_robot(rob).set_pro(p01);
-    //Creo un objeto slot para almacenar un slot del almacen
-    c_Slot S1=a1.get_slot(pos_y, pos_x);
     //S1.almacenar(R01);
-    a1.get_slot(pos_y, pos_x).almacenar(R01);
+    a1.almacenar(a1.get_num_robot(rob), pos_y, pos_x);
     a1.actualizar_almacen();
     return 0;
 }

@@ -11,7 +11,7 @@ class c_Producto{
 private:
     t_product product;
 public:
-    c_Producto (){};
+    c_Producto(){};
     ~c_Producto(){};
     c_Producto(t_product _pro){product=_pro;}
     t_product get_num_product(){return product;}

@@ -26,7 +26,7 @@ using m_col=vector<string>;
 using m_fil=vector<m_col>;
 //ROBOT
 using t_pos=unsigned;
-using t_code=string;
+using t_code=int;
 using t_num=unsigned;
 using t_state=bool;
 //FUNCIONES
