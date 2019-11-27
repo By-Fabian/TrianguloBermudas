@@ -20,7 +20,7 @@ int main() {
     cout<<"Ingresa el numero del robot:";cin>>rob;
     cout<<"Ingresa a donde lo quieres ingresar en 'Y' :";cin>>pos_y;
     cout<<"Ingresa a donde lo quieres ingresar en 'X' :";cin>>pos_x;
-    //Ingreso al produto en la clase robot
+    //Ingreso al producto en la clase robot
     a1.get_num_robot(rob).set_pro(p01);
     //llevar el producto al slot, y ponerlo al vector Productos del slot pos_y+pos_x
     a1.almacenar(a1.get_num_robot(rob), pos_y, pos_x);

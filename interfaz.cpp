@@ -2,9 +2,10 @@
 // Created by utec on 22/11/19.
 //
 
+
 #include "interfaz.h"
-#include "c_Robot.h"
-#include "ALMACEN.h"
+//#include "c_Robot.h"
+//#include "ALMACEN.h"
 
 
 void start() {

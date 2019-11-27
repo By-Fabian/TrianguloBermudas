@@ -4,7 +4,6 @@
 
 #include "ALMACEN.h"
 
-#include "ALMACEN.h"
 //CPP DEL ALMACEN
 c_Almacen::c_Almacen(t_entero filas, t_entero columnas, t_entero niveles):
         num_fil(filas), num_col(columnas), num_niv(niveles){
@@ -44,6 +43,7 @@ void c_Almacen::mostrar_almacen() {
 }
 
 void c_Almacen::actualizar_almacen() {
+
     int le = 0;
     for(int k=0;k <num_col;k++){
         if(k==0){
@@ -78,7 +78,7 @@ void c_Almacen::regresar(c_Robot _robo01, c_Producto _product){
 };
 
 c_Robot c_Almacen::get_num_robot(t_entero _rob) {
-    robots[_rob-1].set_code(_rob);
+    robots[_rob-1].set_code(_rob-1);
     return robots[_rob-1];
 }
 
@@ -120,12 +120,9 @@ c_Slot::c_Slot(t_cantidad _nvl):niveles(_nvl){
 
 void c_Slot::add_producto(t_product _product) {
     productos.emplace_back(_product);
+    product=_product;
 }
 
 void c_Slot::quitar_producto(c_Robot robo01) {
     productos.erase(productos.begin());
 }
-
-void c_Slot::almacenar(c_Robot _robo01){
-    productos.emplace_back(_robo01.get_producto().get_num_product());
-    set_super("[R]");}
