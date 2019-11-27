@@ -20,7 +20,7 @@ public:
     void set_niveles(t_cantidad _niv){niveles=_niv;}
     void set_super(string _super){super=_super;}
     void quitar(c_Robot _robo01);
-    void add_producto(t_product _product);
+    void almacenar(c_Robot _robo01);
     string get_superf(){ return super;};
 };
 
