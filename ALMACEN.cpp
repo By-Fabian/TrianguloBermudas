@@ -19,14 +19,6 @@ c_Almacen::c_Almacen(t_entero filas, t_entero columnas, t_entero niveles):
     slots_m=matriz;
 }
 
-t_code c_Almacen::get_code_robot(t_entero fila, t_entero colum) {
-    return robots[fila].get_code();
-}
-
-c_Slot c_Almacen::get_slot(t_entero fila, t_entero colum) {
-    return slots_m[fila][colum];
-}
-
 void c_Almacen::mostrar_almacen() {
     int le = 0;
     cout<<endl;
@@ -49,11 +41,6 @@ void c_Almacen::mostrar_almacen() {
                 cout << setw(4) << slots_m[i][j].get_superf();
         }cout<<endl;
     }cout<<endl;
-}
-
-c_Robot c_Almacen::get_num_robot(t_entero _rob) {
-    robots[_rob-1].set_code(_rob);
-    return robots[_rob-1];
 }
 
 void c_Almacen::actualizar_almacen() {
@@ -84,6 +71,45 @@ void c_Almacen::almacenar(c_Robot _robo01, t_pos _y, t_pos _x){
     slots_m[_y][_x].add_producto(_robo01.get_producto().get_num_product());
     slots_m[_y][_x].set_super(_robo01.get_sup());
     robots[_robo01.get_code()].set_sup("[ ]");
+    robots[_robo01.get_code()].set_pos(_x,_y);
+}
+void c_Almacen::regresar(c_Robot _robo01, c_Producto _product){
+
+};
+
+c_Robot c_Almacen::get_num_robot(t_entero _rob) {
+    robots[_rob-1].set_code(_rob);
+    return robots[_rob-1];
+}
+
+t_code c_Almacen::get_code_robot(t_entero fila, t_entero colum) {
+    return robots[fila].get_code();
+}
+
+c_Slot c_Almacen::get_slot(t_entero fila, t_entero colum) {
+    return slots_m[fila][colum];
+}
+
+t_pos c_Almacen::buscar_producto_x(t_product _prod) {
+    for(int i;i<num_fil;i++){
+        int k=0;
+        for(int j;j<num_col;j++,k++){
+            if(slots_m[i][j].get_producto()==_prod)
+                return k;
+        }
+    }
+    return 0;
+}
+
+t_pos c_Almacen::buscar_producto_y(t_product _pro) {
+    int k=0;
+    for(int i;i<num_fil;i++,k++){
+        for(int j;j<num_col;j++){
+            if(slots_m[i][j].get_producto()==_pro)
+                return k;
+        }
+    }
+    return 0;
 }
 
 //CPP DEL SLOT
@@ -96,6 +122,6 @@ void c_Slot::add_producto(t_product _product) {
     productos.emplace_back(_product);
 }
 
-void c_Slot::quitar(c_Robot robo01) {
+void c_Slot::quitar_producto(c_Robot robo01) {
     productos.erase(productos.begin());
 }

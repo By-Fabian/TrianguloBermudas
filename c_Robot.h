@@ -13,6 +13,7 @@ private:
     t_entero num_robo;
     t_pos enx_i;
     t_pos eny_i;
+    t_pos eny_ii;
     c_Producto product_using;
     string sup="[R]";
 public:

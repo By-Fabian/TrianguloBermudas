@@ -14,16 +14,15 @@ int main() {
     cout<<"Niveles: ";cin>>niv;
     c_Almacen a1(fil,col,niv);
     a1.mostrar_almacen();
+    cout<<"--------------No pudes sacar productos--------------"<<endl;
     cout<<"Ingresar producto:";cin>>product;
     c_Producto p01(product);
     cout<<"Ingresa el numero del robot:";cin>>rob;
     cout<<"Ingresa a donde lo quieres ingresar en 'Y' :";cin>>pos_y;
     cout<<"Ingresa a donde lo quieres ingresar en 'X' :";cin>>pos_x;
-    //Creo un objeto robot para almacenar al robot del almacen
     //Ingreso al produto en la clase robot
-    //R01.set_pro(p01);
     a1.get_num_robot(rob).set_pro(p01);
-    //S1.almacenar(R01);
+    //llevar el producto al slot, y ponerlo al vector Productos del slot pos_y+pos_x
     a1.almacenar(a1.get_num_robot(rob), pos_y, pos_x);
     a1.actualizar_almacen();
     return 0;
