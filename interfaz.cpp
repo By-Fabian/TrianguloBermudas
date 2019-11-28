@@ -2,11 +2,10 @@
 // Created by utec on 22/11/19.
 //
 
-/*
+
 #include "interfaz.h"
 #include "c_Robot.h"
-//#include "c_Robot.h"
-//#include "ALMACEN.h"
+#include "ALMACEN.h"
 
 
 void start() {
@@ -135,7 +134,7 @@ void salir() {
 
 }
 
-void agregarproductoalmacen(c_Robot &rob,unsigned n,unsigned k) {
+void agregarproductoalmacen(c_Robot &rob,unsigned n,unsigned k,c_Almacen &alm) {
     alm.almacenar(rob,n,k);
 }
 
@@ -143,22 +142,21 @@ void retirarproductoalmacen(c_Robot &rob,c_Almacen alm) {
     unsigned int n,k;
     cout<<"INGRESE FILA DEL SLOT:"<<endl;cin>>n;
     cout<<"INGRESE COLUMNA DEL SLOT: "<<endl;cin>>k;
-    c_Slot sl = alm.get_slot(n,k);
-    sl.quitar(rob);
+    c_Producto pro = alm.get_slot(n,k).get_producto();
+    alm.retirar_producto(rob,pro);
 }
 
-void tipodeproducto(c_Robot &rob) {
+void tipodeproducto(c_Robot &rob,c_Almacen &alm) {
     string a ;
     cout<<"Ingrese el producto: "<<endl;cin>>a;
     unsigned int n,k;
     cout<<"Ingrese fila del slot:"<<endl;cin>>n;
     cout<<"Ingrese columna del slot:"<<endl;cin>>k;
     if (a==alm.get_slot(n,k).get_producto())
-        agregarproductoalmacen(rob,alm,n,k);
+        agregarproductoalmacen(rob,n,k,alm);
 }
 
 int estadoslot(c_Almacen &alm, unsigned int k, unsigned int n) {
     c_Slot sl = alm.get_slot(n,k);
-    cout<<"Hay"<<sl.get_vector().size()<<"productos en el slot"<<endl; //implementar get vector
+    cout<<"Hay"<<sl.get_espacio_uso()<<"productos en el slot"<<endl; //implementar get vector
 }
-*/

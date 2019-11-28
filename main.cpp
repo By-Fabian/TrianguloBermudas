@@ -1,6 +1,7 @@
 #include <iostream>
 #include "tipos_all.h"
 #include "ALMACEN.h"
+#include "interfaz.h"
 
 void intt(ostream& out, istream& in){
     int fil=0,col=0,niv=0;
@@ -34,7 +35,7 @@ int main() {
     ostream & out=cout;
     istream & in=cin;
     intt(out, in);
+    start();
     return 0;
 }
-//hy
-//enseñando sobre push a jean
+//hy//enseñando sobre push a jean
