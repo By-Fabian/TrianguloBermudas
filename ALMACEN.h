@@ -45,9 +45,9 @@ public:
     void regresar(c_Robot _robo01, c_Producto _product);
     t_pos buscar_producto_x(t_product _pro);
     t_pos buscar_producto_y(t_product _pro);
-    void mostrar_almacen();
-    void actualizar_almacen();
-    void mostrar_ruta(c_Robot _robo01);
+    void mostrar_almacen(ostream& out);
+    void actualizar_almacen(ostream& out);
+    void mostrar_ruta(c_Robot _robo01,ostream& out);
 };
 
 #endif //MEEEEPRJJT_ALMACEN_H

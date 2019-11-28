@@ -18,52 +18,52 @@ c_Almacen::c_Almacen(t_entero filas, t_entero columnas, t_entero niveles):
     slots_m=matriz;
 }
 
-void c_Almacen::mostrar_almacen() {
+void c_Almacen::mostrar_almacen(ostream& out) {
     int le = 0;
-    cout<<endl;
+    out<<endl;
     for(int k=0;k <num_col;k++){
         if(k==0){
-            cout<<setw(4)<<"";
+            out<<setw(4)<<"";
         }
-        cout<<setw(4)<<le;
+        out<<setw(4)<<le;
         le = le + 1;
-    }cout<<endl;
+    }out<<endl;
     for (int i = 0; i < num_fil; i++) {
         cout << setw(4) << i;
         for (int j = 0; j < num_col; j++) {
             if(j==0)
                 if (i == 0 || i == ( num_fil) / 2 || i == num_fil - 1)
-                    cout << setw(4) <<robots[2].get_sup();
+                    out << setw(4) <<robots[2].get_sup();
                 else
-                    cout << setw(4) << slots_m[i][j].get_superf();
+                    out << setw(4) << slots_m[i][j].get_superf();
             else
-                cout << setw(4) << slots_m[i][j].get_superf();
-        }cout<<endl;
-    }cout<<endl;
+                out << setw(4) << slots_m[i][j].get_superf();
+        }out<<endl;
+    }out<<endl;
 }
 
-void c_Almacen::actualizar_almacen() {
+void c_Almacen::actualizar_almacen(ostream& out) {
     int le = 0;
     for(int k=0;k <num_col;k++){
         if(k==0){
-            cout<<setw(4)<<"";
+            out<<setw(4)<<"";
         }
-        cout<<setw(4)<<le;
+        out<<setw(4)<<le;
         le = le + 1;
-    }cout<<endl;
+    }out<<endl;
     int m=0;
     for (int i = 0; i < num_fil; i++) {
-        cout << setw(4) << i;
+        out << setw(4) << i;
         for (int j = 0; j < num_col; j++) {
             if(j==0)
                 if (i == 0 || i == ( num_fil) / 2 || i == num_fil - 1)
-                    cout << setw(4) <<robots[m++].get_sup();
+                    out << setw(4) <<robots[m++].get_sup();
                 else
-                    cout << setw(4) << slots_m[i][j].get_superf();
+                    out << setw(4) << slots_m[i][j].get_superf();
             else
-                cout << setw(4) << slots_m[i][j].get_superf();
-        }cout<<endl;
-    }cout<<endl;
+                out << setw(4) << slots_m[i][j].get_superf();
+        }out<<endl;
+    }out<<endl;
 }
 
 void c_Almacen::almacenar(c_Robot _robo01, t_pos _y, t_pos _x){
@@ -111,9 +111,9 @@ t_pos c_Almacen::buscar_producto_y(t_product _pro) {
     return 0;
 }
 
-void c_Almacen::mostrar_ruta(c_Robot _robo01) {
+void c_Almacen::mostrar_ruta(c_Robot _robo01,ostream& out) {
     int le = 0;m_col col;matrix mtz;//colocar los numeros de guia y crear los vectores con *
-    for(int k=0;k <num_col;k++){if(k==0){cout<<setw(4)<<"";}cout<<setw(4)<<le;le = le + 1;}cout<<endl;
+    for(int k=0;k <num_col;k++){if(k==0){out<<setw(4)<<"";}out<<setw(4)<<le;le = le + 1;}out<<endl;
     for(int i=0;i<num_col;i++){col.push_back("*");}for(int i=0;i<num_fil;i++){mtz.push_back(col);}
 
     int kx=_robo01.get_enx_f()-_robo01.get_enx_i();
@@ -131,27 +131,27 @@ void c_Almacen::mostrar_ruta(c_Robot _robo01) {
 
     if (_robo01.get_eny_i()<_robo01.get_eny_f()){
         for(int i=1;i<=abs(ky);i++){
-            mtz[i+_robo01.get_eny_i()][_robo01.get_eny_f()]="o";
+            mtz[i+_robo01.get_eny_i()][_robo01.get_enx_f()]="o";
         }
     } else{
         for(int i=1;i<=abs(ky);i++){
-            mtz[+_robo01.get_eny_i()-i][_robo01.get_eny_f()]="o";
+            mtz[+_robo01.get_eny_i()-i][_robo01.get_enx_f()]="o";
         }
     }
     mtz[_robo01.get_eny_f()][_robo01.get_enx_f()]="[R]";
     int m=0;
     for (int i = 0; i < num_fil; i++) {
-        cout << setw(4) << i;
+        out << setw(4) << i;
         for (int j = 0; j < num_col; j++) {
             if(j==0)
                 if (i == 0 || i == ( num_fil) / 2 || i == num_fil - 1)
-                    cout << setw(4) <<robots[m++].get_sup();
+                    out << setw(4) <<robots[m++].get_sup();
                 else
-                    cout << setw(4) << mtz[i][j];
+                    out << setw(4) << mtz[i][j];
             else
-                cout << setw(4) << mtz[i][j];
-        }cout<<endl;
-    }cout<<endl;
+                out << setw(4) << mtz[i][j];
+        }out<<endl;
+    }out<<endl;
 }
 
 //CPP DEL SLOT
