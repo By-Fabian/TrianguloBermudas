@@ -17,3 +17,4 @@ public:
     t_product get_num_product(){return product;}
 };
 #endif //MEEEEPRJJT_C_PRODUCTO_H
+//hy
