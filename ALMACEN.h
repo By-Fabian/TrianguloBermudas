@@ -39,7 +39,7 @@ public:
     c_Almacen(t_entero filas,t_entero columnas, t_entero niveles);
     ~c_Almacen(){};
     t_code get_code_robot(t_entero fila, t_entero colum);
-    c_Robot get_num_robot(t_entero _rob);
+    c_Robot get_robot_num(t_entero _rob);
     c_Slot get_slot(t_entero fila, t_entero colum);
     void  almacenar(c_Robot _robot, t_pos _y, t_pos _x);
     void retirar_producto(c_Robot _robo01, c_Producto _product);

@@ -20,12 +20,13 @@ void intt(ostream& out, istream& in){
     out<<"Ingresa a donde lo quieres ingresar en 'Y' :";in>>pos_y;
     out<<"Ingresa a donde lo quieres ingresar en 'X' :";in>>pos_x;
     //Ingreso al producto en la clase robot
-    a1.get_num_robot(rob).set_pro(p01);
+    a1.get_robot_num(rob).set_pro(p01);
     //llevar el producto al slot, y ponerlo al vector Productos del slot pos_y+pos_x
-    a1.almacenar(a1.get_num_robot(rob), pos_y, pos_x);
+    a1.almacenar(a1.get_robot_num(rob), pos_y, pos_x);
     a1.actualizar_almacen(out);
     out<<endl;
-    a1.mostrar_ruta(a1.get_num_robot(rob),out);
+    a1.mostrar_ruta(a1.get_robot_num(rob),out);
+
 }
 
 

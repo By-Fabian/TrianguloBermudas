@@ -87,7 +87,7 @@ void c_Almacen::regresar_producto(c_Robot _robo01) {
     slots_m[0][_robo01.get_eny_ii()].set_super(_robo01.get_sup());
 }
 
-c_Robot c_Almacen::get_num_robot(t_entero _rob) {
+c_Robot c_Almacen::get_robot_num(t_entero _rob) {
     robots[_rob-1].set_code(_rob-1);
     return robots[_rob-1];
 }
@@ -101,9 +101,9 @@ c_Slot c_Almacen::get_slot(t_entero fila, t_entero colum) {
 }
 
 t_pos c_Almacen::buscar_producto_x(t_product _prod) {
-    for(int i;i<num_fil;i++){
+    for(int i=0;i<num_fil;i++){
         int k=0;
-        for(int j;j<num_col;j++,k++){
+        for(int j=0;j<num_col;j++,k++){
             if(slots_m[i][j].get_producto()==_prod)
                 return k;
         }
@@ -113,8 +113,8 @@ t_pos c_Almacen::buscar_producto_x(t_product _prod) {
 
 t_pos c_Almacen::buscar_producto_y(t_product _pro) {
     int k=0;
-    for(int i;i<num_fil;i++,k++){
-        for(int j;j<num_col;j++){
+    for(int i=0;i<num_fil;i++,k++){
+        for(int j=0;j<num_col;j++){
             if(slots_m[i][j].get_producto()==_pro)
                 return k;
         }
