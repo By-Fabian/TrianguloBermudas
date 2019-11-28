@@ -21,7 +21,7 @@ public:
     ~c_Slot(){};
     void set_niveles(t_cantidad _niv){niveles=_niv;}
     void set_super(string _super){super=_super;}
-    void quitar_producto(c_Robot _robo01);
+    void quitar_producto();
     void add_producto(t_product _product);
     string get_superf(){ return super;};
     string get_producto(){ return productos[1].get_num_product();}
@@ -42,7 +42,8 @@ public:
     c_Robot get_num_robot(t_entero _rob);
     c_Slot get_slot(t_entero fila, t_entero colum);
     void  almacenar(c_Robot _robot, t_pos _y, t_pos _x);
-    void regresar(c_Robot _robo01, c_Producto _product);
+    void retirar_producto(c_Robot _robo01, c_Producto _product);
+    void regresar_producto(c_Robot _robo01);
     t_pos buscar_producto_x(t_product _pro);
     t_pos buscar_producto_y(t_product _pro);
     void mostrar_almacen(ostream& out);

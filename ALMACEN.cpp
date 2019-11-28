@@ -72,9 +72,20 @@ void c_Almacen::almacenar(c_Robot _robo01, t_pos _y, t_pos _x){
     robots[_robo01.get_code()].set_sup("[ ]");
     robots[_robo01.get_code()].set_pos_ir(_x,_y);
 }
-void c_Almacen::regresar(c_Robot _robo01, c_Producto _product){
-
+void c_Almacen::retirar_producto(c_Robot _robo01, c_Producto _product){
+    t_pos _x = buscar_producto_x(_product.get_num_product());
+    t_pos _y = buscar_producto_y(_product.get_num_product());
+    robots[_robo01.get_code()].set_pro(_product);
+    slots_m[_y][_x].quitar_producto();
+    slots_m[_y][_x].set_super(_robo01.get_sup());
+    robots[_robo01.get_code()].set_pos_ir(_x,_y);
 };
+
+void c_Almacen::regresar_producto(c_Robot _robo01) {
+    slots_m[_robo01.get_eny_f()][_robo01.get_enx_f()].set_super(_robo01.get_sup());
+    robots[_robo01.get_code()].set_pos_ir(0,_robo01.get_eny_ii());
+    slots_m[0][_robo01.get_eny_ii()].set_super(_robo01.get_sup());
+}
 
 c_Robot c_Almacen::get_num_robot(t_entero _rob) {
     robots[_rob-1].set_code(_rob-1);
@@ -163,7 +174,7 @@ void c_Slot::add_producto(t_product _product) {
     product=_product;
 }
 
-void c_Slot::quitar_producto(c_Robot robo01) {
+void c_Slot::quitar_producto() {
     productos.erase(productos.begin());
 }
 
