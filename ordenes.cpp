@@ -19,12 +19,6 @@ void ordene_t::guardar_ordenes(c_Robot &rob) {
 void ordene_t::mostrar_odenes() {
     fstream ficheroEntrada;
     ficheroEntrada.open ("ordenes.txt",ios::in);
-    while(!ficheroEntrada.eof())
-    {
-        ficheroEntrada.getline(linea, sizeof(linea));
-        cout << linea << endl;
-
-        ficheroEntrada.close();}
 }
 
 ordene_t::ordene_t(c_Robot _rob, c_Robot _rob2, c_Robot _rob3) :

@@ -3,4 +3,4 @@ project(MeeeePRJJT)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(MeeeePRJJT main.cpp ALMACEN.h ALMACEN.cpp tipos_all.h c_Producto.h c_Robot.h c_Robot.cpp interfaz.cpp interfaz.h tipos_g.h)
+add_executable(MeeeePRJJT main.cpp ALMACEN.h ALMACEN.cpp tipos_all.h c_Producto.h c_Robot.h c_Robot.cpp interfaz.cpp interfaz.h tipos_g.h ordenes.cpp ordenes.h)
