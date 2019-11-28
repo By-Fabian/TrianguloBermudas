@@ -25,5 +25,7 @@ int main() {
     //llevar el producto al slot, y ponerlo al vector Productos del slot pos_y+pos_x
     a1.almacenar(a1.get_num_robot(rob), pos_y, pos_x);
     a1.actualizar_almacen();
+    cout<<endl;
+    a1.mostrar_ruta(a1.get_num_robot(rob));
     return 0;
 }

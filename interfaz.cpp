@@ -2,7 +2,7 @@
 // Created by utec on 22/11/19.
 //
 
-
+/*
 #include "interfaz.h"
 //#include "c_Robot.h"
 //#include "ALMACEN.h"
@@ -161,3 +161,4 @@ void estadoslot(c_Almacen alm, unsigned int k, unsigned int n) {
     c_Slot sl = alm.get_slot(n,k);
     cout<<"Hay"<<sl.get_vector().size()<<"productos en el slot"<<endl; //implementar get vector
 }
+*/

@@ -5,18 +5,17 @@
 #include "c_Robot.h"
 
 c_Robot::c_Robot(t_entero fila):num_robo{fila} {
-    enx_i=0;
     eny_ii=fila;
+    enx_i=0;
     eny_i=fila;
     enx_i=0;
-    eny_f=0;
+    eny_f=fila;
     enx_f=0;
 }
 
 void c_Robot::regresar_home() {
     enx_i=0;
-    enx_i=eny_ii;
-
+    enx_f=eny_ii;
 }
 
 void c_Robot::set_pos_ir(t_pos _x, t_pos _y){
