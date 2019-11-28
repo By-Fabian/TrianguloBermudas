@@ -2,6 +2,8 @@
 #include "tipos_all.h"
 #include "ALMACEN.h"
 #include "interfaz.h"
+ostream & out=cout;
+istream & in=cin;
 
 void intt(ostream& out, istream& in){
     int fil=0,col=0,niv=0;
@@ -32,8 +34,6 @@ void intt(ostream& out, istream& in){
 
 
 int main() {
-    ostream & out=cout;
-    istream & in=cin;
     intt(out, in);
     start();
     return 0;
