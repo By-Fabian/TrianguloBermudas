@@ -36,5 +36,5 @@ public:
     void set_sup(string _homef){sup=_homef;};
     void regresar_home();
 };
-
+//hy
 #endif //MEEEEPRJJT_C_ROBOT_H

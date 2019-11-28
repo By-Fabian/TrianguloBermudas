@@ -171,3 +171,4 @@ t_cantidad c_Slot::get_espacio_uso() {
     int t_actual=productos.size();
     return t_actual;
 }
+//hy

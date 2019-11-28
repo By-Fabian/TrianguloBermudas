@@ -31,3 +31,4 @@ using t_num=unsigned;
 using t_state=bool;
 //FUNCIONES
 #endif //MEEEEPRJJT_TIPOS_ALL_H
+//hy
