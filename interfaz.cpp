@@ -4,6 +4,7 @@
 
 
 #include "interfaz.h"
+#include "c_Robot.h"
 //#include "c_Robot.h"
 //#include "ALMACEN.h"
 
