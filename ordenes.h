@@ -16,12 +16,9 @@
 using namespace std;
 class ordene_t {
 private:
-    c_Robot rob1;
-    c_Robot rob2;
-    c_Robot rob3;
     string opcion;
 public:
-    explicit ordene_t(c_Robot _rob,c_Robot _rob2,c_Robot _rob3);
+    explicit ordene_t();
     void guardar_ordenes(c_Robot &rob,c_Almacen &alm);
     void mostrar_odenes();
     void set_op(string _opcion){opcion=_opcion;};
