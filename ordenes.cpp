@@ -4,7 +4,7 @@
 
 #include "ordenes.h"
 
-void ordene_t::guardar_ordenes(c_Robot rob,c_Almacen& al) {
+void ordene_t::guardar_ordenes(c_Robot rob, c_Almacen almacen) {
     t_code c = rob.get_code();
     string g = rob.get_producto().get_num_product();
     fstream ficheroEntrada;
@@ -16,7 +16,8 @@ void ordene_t::guardar_ordenes(c_Robot rob,c_Almacen& al) {
     ficheroEntrada<<"Producto dentro de Robot: "<<g<<endl;
     ficheroEntrada<<"Funcion que esta realizando el robot: "<<opcion<<endl;
     ficheroEntrada<<"Ruta asignada: ";
-    al.mostrar_ruta(rob,cout);
+
+    al->mostrar_ruta(rob,cout);
     cout<<endl;
     ficheroEntrada<<"------------------------------------------"<<endl;
     ficheroEntrada.close();

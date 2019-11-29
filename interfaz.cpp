@@ -75,6 +75,7 @@ void crear_almacen() {
     }
      */
     menu(al);
+
 }
 void menu(c_Almacen& al){
     cout<<"Bienvenido al menu interactivo de Triangulo de las Bermudas: "<<endl;
@@ -283,7 +284,7 @@ void reporte(c_Almacen& al,ordene_t ord) {
         int codigo=0;
         cout<<"Robot "<<al.get_robot_num(i+1).get_code()<<" con Home en : "<<al.get_robot_num(i+1).get_eny_ii()<<"; 0"<<endl;
         cout<<"Inventario de Robot :"<<endl;
-        ord.guardar_ordenes(al.get_robot_num(i+1),al);
+        ord.guardar_ordenes(al.get_robot_num(i + 1), al);
         ord.mostrar_odenes();
     }
 
