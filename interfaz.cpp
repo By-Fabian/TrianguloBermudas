@@ -6,6 +6,7 @@
 #include "interfaz.h"
 #include "c_Robot.h"
 #include "ALMACEN.h"
+#include "ordenes.h"
 
 void start() {
     string user = "admin";
@@ -127,7 +128,7 @@ void operacionconrobots() {
     cout<<"2. Retirar Producto. "<<endl;
     cout<<"3. Regresar. "<<endl;
     int opcion=0;
-    orden_t or1();
+    ordene_t or1();
     cout<<"Selecciones una opcion del menu: : ";cin>>opcion;
     while(opcion!=1 && opcion!=2){
         cout<<"Ingrese una opcion valida"<<endl;
@@ -139,12 +140,12 @@ void operacionconrobots() {
         case 1:
             cout << "Usted ha seleccionado la opcion Ingresar Producto . . .";cout<<endl;
             agregarproductoalmacen();
-            or1.set_op("IP");
+            or1().set_op("IP");
             break;
         case 2:
             cout << "Usted ha seleccionado la opción Retirar Producto . . .";cout<<endl;
             retirarproductoalmacen();
-            or1.set_op("RP");
+            or1().set_op("RP");
             break;
         case 3:
             menu();

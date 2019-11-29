@@ -11,7 +11,8 @@ void ordene_t::guardar_ordenes(c_Robot &rob,c_Almacen &alm) {
     ficheroEntrada<<"Robot "<<c<<endl;
     ficheroEntrada<<"Producto dentro de Robot: "<<g<<endl;
     ficheroEntrada<<"Funcion que esta realizando el robot: "<<opcion<<endl;
-    ficheroEntrada<<"Ruta asignada: "<<alm.mostrar_ruta(rob,cout)<<endl;
+    ficheroEntrada<<"Ruta asignada: ";
+    alm.mostrar_ruta(rob,cout);
     ficheroEntrada<<"------------------------------------------"<<endl;
     ficheroEntrada.close();
 }
