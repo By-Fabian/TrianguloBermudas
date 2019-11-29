@@ -18,7 +18,7 @@ class ordene_t {
 private:
     string opcion;
 public:
-    explicit ordene_t();
+    explicit ordene_t(){};
     void guardar_ordenes(c_Robot &rob,c_Almacen &alm);
     void mostrar_odenes();
     void set_op(string _opcion){opcion=_opcion;};
