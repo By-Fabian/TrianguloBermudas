@@ -9,6 +9,8 @@
 #include <iomanip>
 #include <string>
 #include <stdlib.h>
+#include <cmath>
+#include <iostream>
 
 class c_Producto;
 class c_Slot;

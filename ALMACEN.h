@@ -7,7 +7,6 @@
 #include "tipos_all.h"
 #include "c_Robot.h"
 #include "ordenes.h"
-#include <iostream>
 
 
 class c_Slot{
@@ -27,6 +26,8 @@ public:
     string get_superf(){ return super;};
     string get_producto(){ return productos[1].get_num_product();}
     t_cantidad get_espacio_uso();
+    //friend void guardar_ordenes(c_Robot rob,c_Almacen &al);
+
 };
 
 class c_Almacen {
@@ -34,7 +35,6 @@ private:
     t_entero num_fil;
     t_entero num_col;
     t_entero num_niv;
-    friend void reporte(ordene_t &ord,c_Almacen &al);
     vector<c_Robot> robots;
     vector<vector<c_Slot>> slots_m;
 public:
@@ -48,6 +48,9 @@ public:
     void regresar_producto(c_Robot _robo01);
     t_pos buscar_producto_x(t_product _pro);
     t_pos buscar_producto_y(t_product _pro);
+    t_entero get_niveles(){ return num_niv;};
+    t_entero get_filas(){ return num_fil;};
+    t_entero get_columnas(){ return num_col;};
     void mostrar_almacen(ostream& out);
     void actualizar_almacen(ostream& out);
     void mostrar_ruta(c_Robot _robo01,ostream& out);

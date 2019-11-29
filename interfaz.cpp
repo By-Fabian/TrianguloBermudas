@@ -4,9 +4,6 @@
 
 
 #include "interfaz.h"
-#include "c_Robot.h"
-#include "ALMACEN.h"
-#include "ordenes.h"
 
 void start() {
     string user = "admin";
@@ -126,8 +123,8 @@ void salir() {
 void mostraralmacen(c_Almacen& al) {
     cout<<"Estado de Almacen:"<<endl;
     al.mostrar_almacen(cout);                                                               //Funcion que muestra el almacen
-    cout<<"Recuerde que [] representa un robot."<<endl;
-    cout<<"Recuerde que P  representa un slot siendo ocupado por un producto;"<<endl;
+    cout<<"Recuerde que [R] representa un robot."<<endl;
+    cout<<"Recuerde que [ ] representa un home de robot."<<endl;
     int opcion=0;
     cout<<"Para volver a ingresas un producto ingrese 1"<<endl;
     cout<<"Para salir ingrese 2"<<endl;
@@ -139,28 +136,28 @@ void mostraralmacen(c_Almacen& al) {
         menu(al);
     }
 }
-/*
+
 bool tipodeproducto(c_Almacen& al,int fila,int columna,string producto) {
-    string tipo=al.obtenerproducto(fila,columna);
-    if(producto=tipo){
+    string tipo=al.get_slot(fila,columna).get_producto();
+    if(producto==tipo){
         return 1;
     }
     else{
         return 0;
     }
 }
- */
-/*
+
+
 bool estadolot(c_Almacen& al,int fila,int columna,int cantidad) {
-    int libres=al.obtenerlibres(fila,columna);
-    if(cantidad<libres){
+    int libres=al.get_niveles()-al.get_slot(fila,columna).get_espacio_uso();
+    if(cantidad>libres){
         return 1;
     }
     else{
         return 0;
     }
 }
- */
+
 
 void agregarproductoalmacen(c_Almacen& al) {
     int filaingreso=0;
@@ -173,8 +170,8 @@ void agregarproductoalmacen(c_Almacen& al) {
     cout<<"Ingrese columna :";cin>>columnaingreso;
     cout<<"Ingrese producto :";cin>>tipoproducto;
     cout<<"Ingrese cantidad :";cin>>cantidad;
-    confirmartipo=tipodeproducto(filaingreso,columnaingreso,tipoproducto);
-    confirmarcantidad=estadolot(filaingreso,columnaingreso,cantidad);
+    confirmartipo=tipodeproducto(al,filaingreso,columnaingreso,tipoproducto);
+    confirmarcantidad=estadolot(al,filaingreso,columnaingreso,cantidad);
     if (confirmartipo!=1){
         cout<<"El producto no puede ser ingresado por no ser del tipo correspondiente al slot.";
         agregarproductoalmacen(al);
@@ -236,7 +233,6 @@ void retirarproductoalmacen(c_Almacen& al) {
         retirarproductoalmacen(al);
     }
 }
-}
 
 
 
@@ -275,21 +271,22 @@ void operacionconrobots(c_Almacen& al,ordene_t ord) {
 }
 
 void reporte(c_Almacen& al,ordene_t ord) {
-    int filas = al.num_fil;        //getfilas
-    int columnas = al.num_col;  //getcolumnas
-    int niveles = al.num_niv;    //getniveles
+    int filas = al.get_filas();        //getfilas
+    int columnas = al.get_columnas();  //getcolumnas
+    int niveles = al.get_niveles();    //getniveles
 
     cout<<"Reporte del almacen :"<<endl;
     cout<<"El almacen tiene "<<filas<<" filas , "<<columnas<<" columnas y "<<niveles<<" niveles."<<endl;
 
-    int cantidadrobots=al.robots.size();
+    int cantidadrobots=3;
     for(int i=0;i<cantidadrobots;i++){
         int codigo=0;
-        cout<<"Robot "<<al.robots[i].get_code()<<" con Home en :"<<listarobots[i].getHome<<endl;
+        cout<<"Robot "<<al.get_robot_num(i+1).get_code()<<" con Home en : "<<al.get_robot_num(i+1).get_eny_ii()<<"; 0"<<endl;
+        cout<<"Inventario de Robot :"<<endl;
+        ord.guardar_ordenes(al.get_robot_num(i+1),al);
+        ord.mostrar_odenes();
     }
-    cout<<"Inventario de Robot :"<<endl;
-    /*ord.guardar_ordenes(al.robots)
-    ord.mostrar_odenes();//JP*/
+
     int opcion=0;
     cout<<"Presione X para regresar al mennu."<<endl;
 

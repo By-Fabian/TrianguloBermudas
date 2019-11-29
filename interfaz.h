@@ -5,9 +5,7 @@
 #ifndef TRIANGULOBERMUDAS_INTERFAZ_H
 #define TRIANGULOBERMUDAS_INTERFAZ_H
 
-#include "tipos_g.h"
 #include "ordenes.h"
-#include "ALMACEN.h"
 
 void start();
 void triangulodelasbermudas();

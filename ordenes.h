@@ -5,10 +5,7 @@
 #ifndef MEEEEPRJJT_ORDENES_H
 #define MEEEEPRJJT_ORDENES_H
 
-
-#include "c_Robot.h"
 #include <fstream>
-#include <iostream>
 #include <utility>
 #include "tipos_g.h"
 #include "ALMACEN.h"
@@ -18,11 +15,10 @@ class ordene_t {
 private:
     string opcion;
 public:
-    explicit ordene_t(){};
-    void guardar_ordenes(c_Robot &rob,c_Almacen &alm);
+    ordene_t(){};
+    void guardar_ordenes(c_Robot rob, c_Almacen &al);
     void mostrar_odenes();
     void set_op(string _opcion){opcion=_opcion;};
 };
-
 
 #endif //MEEEEPRJJT_ORDENES_H
