@@ -127,6 +127,7 @@ void operacionconrobots() {
     cout<<"2. Retirar Producto. "<<endl;
     cout<<"3. Regresar. "<<endl;
     int opcion=0;
+    orden_t or1();
     cout<<"Selecciones una opcion del menu: : ";cin>>opcion;
     while(opcion!=1 && opcion!=2){
         cout<<"Ingrese una opcion valida"<<endl;
