@@ -169,14 +169,12 @@ void reporte() {
     cout<<"Hay"<<producto
     int libres=a1.libres();
     int ocupados=a1.ocupados();
-    cout<<Lista de operaciones//JP
-
+    or1.mostrar_ordenes();//JP
+    salir();
 
 void salir() {
     cout<<"GRACIAS POR HABER USADO TRIANGULO DE LAS BERMUDAS"<<endl;
     cout<<"PROFESOIR NO NOS JALE :v";
-    //or1.mostrar_ordenes();
-
 }
 /*
 void agregarproductoalmacen(c_Robot &rob,unsigned n,unsigned k,c_Almacen &alm) {
