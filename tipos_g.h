@@ -9,5 +9,6 @@
 #include <string>
 #include <cmath>
 #include <vector>
+#include <stdlib.h>
 using namespace std;
 #endif //TRIANGULOBERMUDAS_TIPOS_G_H

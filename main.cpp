@@ -2,6 +2,7 @@
 #include "tipos_all.h"
 #include "ALMACEN.h"
 #include "interfaz.h"
+/*
 ostream & out=cout;
 istream & in=cin;
 
@@ -31,10 +32,11 @@ void intt(ostream& out, istream& in){
     a1.mostrar_ruta(a1.get_robot_num(rob),out);
 
 }
-
+*/
 
 int main() {
-    intt(out, in);
+
+    //intt(out, in);
     start();
     return 0;
 }

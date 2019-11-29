@@ -20,6 +20,8 @@ void mostraralmacen();
 void operacionconrobots();
 void reporte();
 void salir();
+auto imprimir();
+auto leer();
 
 
 #endif //TRIANGULOBERMUDAS_INTERFAZ_H
