@@ -7,7 +7,6 @@
 
 #include <fstream>
 #include <utility>
-#include "tipos_g.h"
 #include "ALMACEN.h"
 
 

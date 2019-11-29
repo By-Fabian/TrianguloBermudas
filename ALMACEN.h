@@ -4,9 +4,7 @@
 
 #ifndef MEEEEPRJJT_ALMACEN_H
 #define MEEEEPRJJT_ALMACEN_H
-#include "tipos_all.h"
 #include "c_Robot.h"
-
 
 class c_Slot{
 private:

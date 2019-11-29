@@ -1,6 +1,4 @@
 #include <iostream>
-#include "tipos_all.h"
-#include "ALMACEN.h"
 #include "interfaz.h"
 
 ostream & out=cout;

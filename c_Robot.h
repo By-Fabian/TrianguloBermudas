@@ -5,7 +5,6 @@
 #ifndef MEEEEPRJJT_C_ROBOT_H
 #define MEEEEPRJJT_C_ROBOT_H
 
-#include "tipos_all.h"
 #include "c_Producto.h"
 class c_Robot{
 private:
