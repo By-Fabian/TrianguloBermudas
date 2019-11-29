@@ -141,10 +141,10 @@ void mostraralmacen(c_Almacen& al) {
 bool tipodeproducto(c_Almacen& al,int fila,int columna,string producto) {
     string tipo=al.get_slot(fila,columna).get_producto();
     if(producto==tipo){
-        return 1;
+        return true;
     }
     else{
-        return 0;
+        return false;
     }
 }
 
@@ -152,10 +152,10 @@ bool tipodeproducto(c_Almacen& al,int fila,int columna,string producto) {
 bool estadolot(c_Almacen& al,int fila,int columna,int cantidad) {
     int libres=al.get_niveles()-al.get_slot(fila,columna).get_espacio_uso();
     if(cantidad>libres){
-        return 1;
+        return true;
     }
     else{
-        return 0;
+        return false;
     }
 }
 

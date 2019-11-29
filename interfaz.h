@@ -10,12 +10,12 @@
 void start();
 void triangulodelasbermudas();
 void crear_almacen();
-void agregarproductoalmacen(c_Almacen& al,ordene_t& ord);
+void agregarproductoalmacen(c_Almacen &al,ordene_t &ord);
 void retirarproductoalmacen(c_Almacen& al,ordene_t& ord);
 bool tipodeproducto(c_Almacen& al,int fila,int columna,string producto);
 bool estadolot(c_Almacen& al,int fila,int columna,int cantidad);
 void menu(c_Almacen & al);
-void mostraralmacen(c_Almacen& al);
+void mostraralmacen(c_Almacen &al);
 void operacionconrobots(c_Almacen& al,ordene_t& ord);
 void reporte(c_Almacen& al,ordene_t& ord);
 void leerarchivos(ordene_t &ord);

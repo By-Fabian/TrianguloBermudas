@@ -4,7 +4,7 @@
 
 #include "ordenes.h"
 
-void ordene_t::guardar_ordenes(c_Robot &rob, c_Almacen& almacen) {
+void ordene_t::guardar_ordenes(c_Robot rob, c_Almacen& almacen) {
     t_code c = rob.get_code();
     string g = rob.get_producto().get_num_product();
     fstream ficheroEntrada;
@@ -34,4 +34,7 @@ void ordene_t::mostrar_odenes() {
             cout<<cadena<<endl;
         }
     }
+}
+void ordene_t::set_op(string _opcion){
+    opcion = _opcion;
 }

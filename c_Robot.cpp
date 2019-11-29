@@ -21,6 +21,6 @@ void c_Robot::regresar_home() {
 void c_Robot::set_pos_ir(t_pos _x, t_pos _y){
     eny_i=eny_f;
     enx_i=enx_f;
-    enx_f=_x; eny_f=_y;
+    enx_f=_x;
+    eny_f=_y;
 }
-//hy

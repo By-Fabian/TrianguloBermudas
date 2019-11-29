@@ -1,9 +1,10 @@
 #include <iostream>
-#include "interfaz.h"
+#include "ALMACEN.h"
+//#include "interfaz.h"
 
 ostream & out=cout;
 istream & in=cin;
-/*
+
 void intt(ostream& out, istream& in){
     int fil=0,col=0,niv=0;
     int _x,_y;
@@ -30,10 +31,10 @@ void intt(ostream& out, istream& in){
     a1.mostrar_ruta(a1.get_robot_num(rob),out);
 
 }
-*/
+
 
 int main() {
-    start();
+    intt(out, in);
     return 0;
 }
 //hy//enseñando sobre push a jean

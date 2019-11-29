@@ -15,9 +15,9 @@ private:
     string opcion;
 public:
     ordene_t(){};
-    void guardar_ordenes(c_Robot& rob, c_Almacen& almacen);
+    void guardar_ordenes(c_Robot rob, c_Almacen& almacen);
     void mostrar_odenes();
-    void set_op(string _opcion){opcion=_opcion;};
+    void set_op(string _opcion); //{opcion=_opcion;}
 };
 
 #endif //MEEEEPRJJT_ORDENES_H
