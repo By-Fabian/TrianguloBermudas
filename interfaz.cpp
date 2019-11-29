@@ -7,8 +7,6 @@
 #include "c_Robot.h"
 #include "ALMACEN.h"
 
-
-
 void start() {
     string user = "admin";
     string usuario ;
@@ -71,7 +69,7 @@ void crear_almacen() {
         cout<<"Numero de niveles: ";cin>>niveles;
 
     }
-    //c_Almacen(filas,columnas,niveles);                                           //Funcion que creaa el objeto almacen
+    c_Almacen a1(filas,columnas,niveles);                                           //Funcion que creaa el objeto almacen
     /*for(int i=0;i<3;i++) {
         cout << "Login ." << endl;
         cout << "Login . ." << endl;
@@ -156,9 +154,9 @@ void operacionconrobots() {
 }
 
 void reporte() {
-    int filas=a1.getfilas();        //getfilas
-    int columnas=a1.getcolumnas();  //getcolumnas
-    int niveles=a1.getNiveles();    //getniveles
+    int filas = a1.getfilas();        //getfilas
+    int columnas = a1.getcolumnas();  //getcolumnas
+    int niveles = a1.getNiveles();    //getniveles
 
     cout<<"Reporte del almacen :"<<endl;
     cout<<"El almacen tiene "<<filas<<" filas , "<<columnas<<" columnas y "<<niveles<<" niveles."<<endl;

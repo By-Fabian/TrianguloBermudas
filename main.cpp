@@ -2,10 +2,10 @@
 #include "tipos_all.h"
 #include "ALMACEN.h"
 #include "interfaz.h"
-/*
+
 ostream & out=cout;
 istream & in=cin;
-
+/*
 void intt(ostream& out, istream& in){
     int fil=0,col=0,niv=0;
     int _x,_y;
