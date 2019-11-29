@@ -79,7 +79,7 @@ void crear_almacen() {
      */
     menu();
 }
-void menu(){
+void menu(c_Almacen & al){
     cout<<"Bienvenido al menu interactivo de Triangulo de las Bermudas: "<<endl;
     cout<<"Opciones : "<<endl;
     cout<<"1. Mostrar almacen."<<endl;
@@ -93,19 +93,20 @@ void menu(){
         cout<<"Selecciones una opcion del menu: : ";cin>>opcion;cout<<endl;
 
     }
+    ordene_t ord;
     switch(opcion)
     {
         case 1:
             cout << "Usted ha seleccionado la opcion Mostrar Almacen . . .";cout<<endl;
-            mostraralmacen();
+            mostraralmacen(al);
             break;
         case 2:
             cout << "Usted ha seleccionado la opción Operacion con Robots . . .";cout<<endl;
-            operacionconrobots();
+            operacionconrobots(ord);
             break;
         case 3:
             cout << "Usted ha seleccionado la opción Reporte . . .";cout<<endl;
-            reporte();
+            reporte(ord,al);
             break;
         case 4:
             cout << "Usted ha seleccionado la opción Salir . . .";cout<<endl;
@@ -114,21 +115,21 @@ void menu(){
     }
 }
 
-void mostraralmacen() {
+void mostraralmacen(c_Almacen &al) {
     cout<<"Estado de Almacen:"<<endl;
-    //a1.mostraralmacen;                                                                //Funcion que muestra el almacen
+    al.mostrar_almacen(cout);                                                               //Funcion que muestra el almacen
     cout<<"Recuerde que [] representa un robot."<<endl;
     cout<<"Recuerde que P  representa un slot siendo ocupado por un producto;"<<endl;
 }
 
-void operacionconrobots() {
+void operacionconrobots(ordene_t &ord) {
     cout<<"Menu de operaciones con Robots :"<<endl;
     cout<<"Opciones :";
     cout<<"1. Ingresar Producto."<<endl;
     cout<<"2. Retirar Producto. "<<endl;
     cout<<"3. Regresar. "<<endl;
     int opcion=0;
-    ordene_t or1();
+
     cout<<"Selecciones una opcion del menu: : ";cin>>opcion;
     while(opcion!=1 && opcion!=2){
         cout<<"Ingrese una opcion valida"<<endl;
@@ -140,12 +141,12 @@ void operacionconrobots() {
         case 1:
             cout << "Usted ha seleccionado la opcion Ingresar Producto . . .";cout<<endl;
             agregarproductoalmacen();
-            or1().set_op("IP");
+            ord.set_op("IP");
             break;
         case 2:
             cout << "Usted ha seleccionado la opción Retirar Producto . . .";cout<<endl;
             retirarproductoalmacen();
-            or1().set_op("RP");
+            ord.set_op("RP");
             break;
         case 3:
             menu();
@@ -155,23 +156,24 @@ void operacionconrobots() {
 
 }
 
-void reporte() {
-    int filas = a1.getfilas();        //getfilas
-    int columnas = a1.getcolumnas();  //getcolumnas
-    int niveles = a1.getNiveles();    //getniveles
+void reporte(ordene_t &ord,c_Almacen &al) {
+    int filas = al.num_fil;        //getfilas
+    int columnas = al.num_col;  //getcolumnas
+    int niveles = al.num_niv;    //getniveles
 
     cout<<"Reporte del almacen :"<<endl;
     cout<<"El almacen tiene "<<filas<<" filas , "<<columnas<<" columnas y "<<niveles<<" niveles."<<endl;
-    int cantidadrobots=a1.cantidadrobots();
+
+    int cantidadrobots=al.robots.size();
     for(int i=0;i<cantidadrobots;i++){
         int codigo=0;
-        cout<<"Robot "<<listarobots[i].getcodigo<<" con Home en :"<<listarobots[i].getHome<<endl;
+        cout<<"Robot "<<al.robots[i].get_code()<<" con Home en :"<<listarobots[i].getHome<<endl;
     }
     cout<<"Inventario de Robot :"<<endl;
     cout<<"Hay"<<producto
     int libres=a1.libres();
     int ocupados=a1.ocupados();
-    or1.mostrar_ordenes();//JP
+    ord.mostrar_odenes();//JP
     salir();
 
 void salir() {
