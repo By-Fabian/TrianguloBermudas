@@ -6,7 +6,6 @@
 #define MEEEEPRJJT_ALMACEN_H
 #include "tipos_all.h"
 #include "c_Robot.h"
-#include "ordenes.h"
 
 
 class c_Slot{
@@ -38,6 +37,7 @@ private:
     vector<c_Robot> robots;
     vector<vector<c_Slot>> slots_m;
 public:
+    c_Almacen()= default;
     c_Almacen(t_entero filas,t_entero columnas, t_entero niveles);
     ~c_Almacen(){};
     t_code get_code_robot(t_entero fila, t_entero colum);
