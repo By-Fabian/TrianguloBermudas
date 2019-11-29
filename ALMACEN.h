@@ -6,6 +6,7 @@
 #define MEEEEPRJJT_ALMACEN_H
 #include "tipos_all.h"
 #include "c_Robot.h"
+#include "ordenes.h"
 #include <iostream>
 
 
@@ -33,6 +34,7 @@ private:
     t_entero num_fil;
     t_entero num_col;
     t_entero num_niv;
+    friend void reporte(ordene_t &ord,c_Almacen &al);
     vector<c_Robot> robots;
     vector<vector<c_Slot>> slots_m;
 public:

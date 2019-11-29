@@ -6,7 +6,8 @@
 #define TRIANGULOBERMUDAS_INTERFAZ_H
 
 #include "tipos_g.h"
-#include "ALMACEN.h"
+#include "ordenes.h"
+//#include "ALMACEN.h"
 
 void start();
 void triangulodelasbermudas();
@@ -15,11 +16,11 @@ void agregarproductoalmacen();
 void retirarproductoalmacen();
 void tipodeproducto();
 void estadoslot();
-void menu(c_Almacen a1);
-void mostraralmacen(c_Almacen a1);
-void operacionconrobots(c_Almacen a1);
-void reporte(c_Almacen a1);
-void salir(c_Almacen a1);
+void menu();
+void mostraralmacen(c_Almacen almacen);
+void operacionconrobots(ordene_t &ord);
+void reporte(ordene_t &ord, c_Almacen almacen);
+void salir();
 auto imprimir();
 auto leer();
 
