@@ -140,10 +140,12 @@ void operacionconrobots() {
         case 1:
             cout << "Usted ha seleccionado la opcion Ingresar Producto . . .";cout<<endl;
             agregarproductoalmacen();
+            or1.set_op("IP");
             break;
         case 2:
             cout << "Usted ha seleccionado la opción Retirar Producto . . .";cout<<endl;
             retirarproductoalmacen();
+            or1.set_op("RP");
             break;
         case 3:
             menu();
@@ -175,6 +177,7 @@ void reporte() {
 void salir() {
     cout<<"GRACIAS POR HABER USADO TRIANGULO DE LAS BERMUDAS"<<endl;
     cout<<"PROFESOIR NO NOS JALE :v";
+    //or1.mostrar_ordenes();
 
 }
 /*
