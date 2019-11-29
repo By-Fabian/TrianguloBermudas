@@ -7,12 +7,16 @@ void ordene_t::guardar_ordenes(c_Robot &rob,c_Almacen &alm) {
     t_code c = rob.get_code();
     string g = rob.get_producto().get_num_product();
     fstream ficheroEntrada;
-    ficheroEntrada.open ("ordenes.txt",ios::out&ios::app);
+    ficheroEntrada.open ("ordenes.txt",ios::app);
+    if (!ficheroEntrada.is_open()){
+        cout<< "No se puede abrir"<<endl;
+    }
     ficheroEntrada<<"Robot "<<c<<endl;
     ficheroEntrada<<"Producto dentro de Robot: "<<g<<endl;
     ficheroEntrada<<"Funcion que esta realizando el robot: "<<opcion<<endl;
     ficheroEntrada<<"Ruta asignada: ";
     alm.mostrar_ruta(rob,cout);
+    cout<<endl;
     ficheroEntrada<<"------------------------------------------"<<endl;
     ficheroEntrada.close();
 }

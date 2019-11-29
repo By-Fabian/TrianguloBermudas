@@ -35,7 +35,6 @@ void intt(ostream& out, istream& in){
 */
 
 int main() {
-
     start();
     return 0;
 }

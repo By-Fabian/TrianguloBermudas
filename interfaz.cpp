@@ -70,16 +70,16 @@ void crear_almacen() {
         cout<<"Numero de niveles: ";cin>>niveles;
 
     }
-    c_Almacen a1(filas,columnas,niveles);                                           //Funcion que creaa el objeto almacen
+    c_Almacen al(filas,columnas,niveles);                                           //Funcion que creaa el objeto almacen
     /*for(int i=0;i<3;i++) {
         cout << "Login ." << endl;
         cout << "Login . ." << endl;
         cout << "Login . . ." << endl;
     }
      */
-    menu();
+    menu(al);
 }
-void menu(c_Almacen & al){
+void menu(c_Almacen& al){
     cout<<"Bienvenido al menu interactivo de Triangulo de las Bermudas: "<<endl;
     cout<<"Opciones : "<<endl;
     cout<<"1. Mostrar almacen."<<endl;
@@ -98,31 +98,149 @@ void menu(c_Almacen & al){
     {
         case 1:
             cout << "Usted ha seleccionado la opcion Mostrar Almacen . . .";cout<<endl;
-            mostraralmacen(al);
+            mostraralmacen(al,ord);
             break;
         case 2:
             cout << "Usted ha seleccionado la opción Operacion con Robots . . .";cout<<endl;
-            operacionconrobots(ord);
+            operacionconrobots(al,ord);
             break;
         case 3:
             cout << "Usted ha seleccionado la opción Reporte . . .";cout<<endl;
-            reporte(ord,al);
+            reporte(al,ord);
             break;
         case 4:
+            cout << "Usted ha seleccionado la opción Leer Archivo . . .";cout<<endl;
+            //leerarchivo();
+            break;
+        case 5:
             cout << "Usted ha seleccionado la opción Salir . . .";cout<<endl;
             salir();
             break;
     }
 }
+void salir() {
+    cout<<"GRACIAS POR HABER USADO TRIANGULO DE LAS BERMUDAS"<<endl;
+    cout<<"PROFESOIR NO NOS JALE :v";
+}
 
-void mostraralmacen(c_Almacen &al) {
+void mostraralmacen(c_Almacen& al,ordene_t& ord) {
     cout<<"Estado de Almacen:"<<endl;
     al.mostrar_almacen(cout);                                                               //Funcion que muestra el almacen
     cout<<"Recuerde que [] representa un robot."<<endl;
     cout<<"Recuerde que P  representa un slot siendo ocupado por un producto;"<<endl;
+    int opcion=0;
+    cout<<"Para volver a ingresas un producto ingrese 1"<<endl;
+    cout<<"Para salir ingrese 2"<<endl;
+    cout<<"Ingrese opcion :";cin>>opcion;
+    if (opcion==1){
+        mostraralmacen(al,ord);
+    }
+    if (opcion==2){
+        menu(al);
+    }
+}
+/*
+bool tipodeproducto(c_Almacen& al,int fila,int columna,string producto) {
+    string tipo=al.obtenerproducto(fila,columna);
+    if(producto=tipo){
+        return 1;
+    }
+    else{
+        return 0;
+    }
+}
+ */
+/*
+bool estadolot(c_Almacen& al,int fila,int columna,int cantidad) {
+    int libres=al.obtenerlibres(fila,columna);
+    if(cantidad<libres){
+        return 1;
+    }
+    else{
+        return 0;
+    }
+}
+ */
+
+void agregarproductoalmacen(c_Almacen& al,ordene_t& ord) {
+    int filaingreso=0;
+    int columnaingreso=0;
+    int cantidad=0;
+    string tipoproducto;
+    bool confirmartipo;
+    bool confirmarcantidad;
+    cout<<"Ingrese fila :";cin>>filaingreso;
+    cout<<"Ingrese columna :";cin>>columnaingreso;
+    cout<<"Ingrese producto :";cin>>tipoproducto;
+    cout<<"Ingrese cantidad :";cin>>cantidad;
+    confirmartipo=tipodeproducto(filaingreso,columnaingreso,tipoproducto);
+    confirmarcantidad=estadolot(filaingreso,columnaingreso,cantidad);
+    if (confirmartipo!=1){
+        cout<<"El producto no puede ser ingresado por no ser del tipo correspondiente al slot.";
+        agregarproductoalmacen(al,ord);
+    }
+    else{
+        if (confirmarcantidad!=1){
+            cout<<"El producto no puede ser ingresado por la capacidad del slot.";
+            cout<<endl;
+            agregarproductoalmacen(al,ord);
+        }
+    }
+    //a1.agregarproducto(filaingreso,columnaingreso,tipoproductoingreso,cantidad); //metodoqueagregraproductos
+    int opcion=0;
+    cout<<"Para regresar al menu selecione la opcion 0."<<endl;
+    cout<<"Para volver a ingresar un producto ingrese 1"<<endl;
+    cout<<"Ingrese opcion :";cin>>opcion;
+    opcion = 0;
+    if(opcion==0){
+        menu(al);
+    }
+    if(opcion==1){
+        agregarproductoalmacen(al,ord);
+    }
+}
+void retirarproductoalmacen(c_Almacen& al,ordene_t& ord) {
+    int filasalida=0;
+    int columnasalida=0;
+    int cantidad=0;
+    string tipoproducto;
+    bool confirmartipo;
+    bool confirmarcantidad;
+    cout<<"Ingrese fila :";cin>>filasalida;
+    cout<<"Ingrese columna :";cin>>columnasalida;
+    cout<<"Ingrese producto :";cin>>tipoproducto;
+    cout<<"Ingrese cantidad :";cin>>cantidad;
+    confirmartipo=tipodeproducto(al,filasalida,columnasalida,tipoproducto);
+    confirmarcantidad=estadolot(al,filasalida,columnasalida,cantidad);
+    if (confirmartipo!=1){
+        cout<<"El producto no puede ser ingresado por no ser del tipo correspondiente al slot.";
+        agregarproductoalmacen(al,ord);
+    }
+    else{
+        if (confirmarcantidad!=1){
+            cout<<"El producto no puede ser ingresado por la capacidad del slot.";
+            cout<<endl;
+            agregarproductoalmacen(al,ord);
+        }
+    }
+    //a1.retirarproducto(filaingreso,columnaingreso,tipoproductoingreso,cantidad);          //metodoqueagregraproductos
+    int opcion=0;
+    cout<<"Para regresar al menu selecione la opcion 0."<<endl;
+    cout<<"Para volver a retirar un producto ingrese 1"<<endl;
+    cout<<"Ingrese opcion :";cin>>opcion;
+    opcion = 0;
+    if(opcion==0){
+        menu(al);
+    }
+    if(opcion==1){
+        retirarproductoalmacen(al,ord);
+    }
+}
 }
 
-void operacionconrobots(ordene_t &ord) {
+
+
+void operacionconrobots(c_Almacen& al,ordene_t ord) {
     cout<<"Menu de operaciones con Robots :"<<endl;
     cout<<"Opciones :";
     cout<<"1. Ingresar Producto."<<endl;
@@ -140,23 +258,23 @@ void operacionconrobots(ordene_t &ord) {
     {
         case 1:
             cout << "Usted ha seleccionado la opcion Ingresar Producto . . .";cout<<endl;
-            agregarproductoalmacen();
+            agregarproductoalmacen(al,ord);
             ord.set_op("IP");
             break;
         case 2:
             cout << "Usted ha seleccionado la opción Retirar Producto . . .";cout<<endl;
-            retirarproductoalmacen();
+            retirarproductoalmacen(al,ord);
             ord.set_op("RP");
             break;
         case 3:
-            menu();
+            menu(al);
             break;
     }
 
 
 }
 
-void reporte(ordene_t &ord,c_Almacen &al) {
+void reporte(c_Almacen& al,ordene_t ord) {
     int filas = al.num_fil;        //getfilas
     int columnas = al.num_col;  //getcolumnas
     int niveles = al.num_niv;    //getniveles
@@ -170,15 +288,19 @@ void reporte(ordene_t &ord,c_Almacen &al) {
         cout<<"Robot "<<al.robots[i].get_code()<<" con Home en :"<<listarobots[i].getHome<<endl;
     }
     cout<<"Inventario de Robot :"<<endl;
-    cout<<"Hay"<<producto
+    /*
     int libres=a1.libres();
     int ocupados=a1.ocupados();
+    cout<<"Hay"<<producto
     ord.mostrar_odenes();//JP
+    */
+    int opcion=0;
+    cout<<"Presione X para regresar al mennu."<<endl;
+
     salir();
 
-void salir() {
-    cout<<"GRACIAS POR HABER USADO TRIANGULO DE LAS BERMUDAS"<<endl;
-    cout<<"PROFESOIR NO NOS JALE :v";
+void leerarchivos(){
+    cout<<
 }
 /*
 void agregarproductoalmacen(c_Robot &rob,unsigned n,unsigned k,c_Almacen &alm) {
@@ -196,108 +318,6 @@ void tipodeproducto(c_Robot &rob,c_Almacen &alm) {
         agregarproductoalmacen(rob,n,k,alm);
 }
 */
-
-bool tipodeproducto(int fila,int columna,string producto) {
-    string tipo=a1.obtenerproducto(fila,columna);
-    if(producto=tipo){
-        return 1;
-    }
-    else{
-        return 0;
-    }
-
-}
-/*
-bool estadolot(c_Almacen &alm, unsigned int k, unsigned int n) {
-    c_Slot sl = alm.get_slot(n,k);
-    cout<<"Hay"<<sl.get_espacio_uso()<<"productos en el slot"<<endl; //implementar get vector
-}
- */
-bool estadolot(int fila,int columna,int cantidad) {
-    int libres=a1.obtenerlibres(fila,columna);
-    if(cantidad<libres){
-        return 1;
-    }
-    else{
-        return 0;
-    }
-}
-
-void agregarproductoalmacen() {
-    int filaingreso=0;
-    int columnaingreso=0;
-    int cantidad=0;
-    string tipoproducto;
-    bool confirmartipo;
-    bool confirmarcantidad;
-    cout<<"Ingrese fila :";cin>>filaingreso;
-    cout<<"Ingrese columna :";cin>>columnaingreso;
-    cout<<"Ingrese producto :";cin>>tipoproducto;
-    cout<<"Ingrese cantidad :";cin>>cantidad;
-    confirmartipo=tipodeproducto(filaingreso,columnaingreso,tipoproducto);
-    confirmarcantidad=estadolot(filaingreso,columnaingreso,cantidad);
-    if (confirmartipo!=1){
-        cout<<"El producto no puede ser ingresado por no ser del tipo correspondiente al slot.";
-        agregarproductoalmacen();
-    }
-    else{
-        if (confirmarcantidad!=1){
-            cout<<"El producto no puede ser ingresado por la capacidad del slot.";
-            cout<<endl;
-            agregarproductoalmacen();
-        }
-    }
-    //a1.agregarproducto(filaingreso,columnaingreso,tipoproductoingreso,cantidad); //metodoqueagregraproductos
-    int opcion=0;
-    cout<<"Para regresar al menu selecione la opcion 0."<<endl;
-    cout<<"Para volver a ingresar un producto ingrese 1"<<endl;
-    cout<<"Ingrese opcion :";cin>>opcion;
-    opcion = 0;
-    if(opcion==0){
-        menu();
-    }
-    if(opcion==1){
-        agregarproductoalmacen();
-    }
-    }
-void retirarproductoalmacen() {
-    int filasalida=0;
-    int columnasalida=0;
-    int cantidad=0;
-    string tipoproducto;
-    bool confirmartipo;
-    bool confirmarcantidad;
-    cout<<"Ingrese fila :";cin>>filasalida;
-    cout<<"Ingrese columna :";cin>>columnasalida;
-    cout<<"Ingrese producto :";cin>>tipoproducto;
-    cout<<"Ingrese cantidad :";cin>>cantidad;
-    confirmartipo=tipodeproducto(filasalida,columnasalida,tipoproducto);
-    confirmarcantidad=estadoslot(filasalida,columnasalida,cantidad);
-    if (confirmartipo!=1){
-        cout<<"El producto no puede ser ingresado por no ser del tipo correspondiente al slot.";
-        agregarproductoalmacen();
-    }
-    else{
-        if (confirmarcantidad!=1){
-            cout<<"El producto no puede ser ingresado por la capacidad del slot.";
-            cout<<endl;
-            agregarproductoalmacen();
-        }
-    }
-    //a1.retirarproducto(filaingreso,columnaingreso,tipoproductoingreso,cantidad);          //metodoqueagregraproductos
-    int opcion=0;
-    cout<<"Para regresar al menu selecione la opcion 0."<<endl;
-    cout<<"Para volver a retirar un producto ingrese 1"<<endl;
-    cout<<"Ingrese opcion :";cin>>opcion;
-    opcion = 0;
-    if(opcion==0){
-        menu();
-    }
-    if(opcion==1){
-        retirarproductoalmacen();
-    }
-}
-}
 
 
 

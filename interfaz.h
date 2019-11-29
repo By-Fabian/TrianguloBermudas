@@ -7,22 +7,20 @@
 
 #include "tipos_g.h"
 #include "ordenes.h"
-//#include "ALMACEN.h"
+#include "ALMACEN.h"
 
 void start();
 void triangulodelasbermudas();
 void crear_almacen();
-void agregarproductoalmacen();
-void retirarproductoalmacen();
-void tipodeproducto();
-void estadoslot();
-void menu();
-void mostraralmacen(c_Almacen almacen);
-void operacionconrobots(ordene_t &ord);
-void reporte(ordene_t &ord, c_Almacen almacen);
+void agregarproductoalmacen(c_Almacen& al,ordene_t& ord);
+void retirarproductoalmacen(c_Almacen& al,ordene_t& ord);
+bool tipodeproducto(c_Almacen& al,int fila,int columna,string producto);
+bool estadolot(c_Almacen& al,int fila,int columna,int cantidad);
+void menu(c_Almacen & al);
+void mostraralmacen(c_Almacen& al,ordene_t& ord);
+void operacionconrobots(c_Almacen& al,ordene_t& ord);
+void reporte(c_Almacen& al,ordene_t& ord);
 void salir();
-auto imprimir();
-auto leer();
 
 
 #endif //TRIANGULOBERMUDAS_INTERFAZ_H
