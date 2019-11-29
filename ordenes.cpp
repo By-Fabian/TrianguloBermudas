@@ -28,8 +28,4 @@ void ordene_t::mostrar_odenes() {
         }
     }
 }
-}
 
-ordene_t::ordene_t(c_Robot _rob, c_Robot _rob2, c_Robot _rob3) :
-rob1(_rob),rob2(_rob2),rob3(_rob3){
-}//inicializalo vidal por fis :,v
