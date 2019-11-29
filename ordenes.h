@@ -11,6 +11,8 @@
 #include <iostream>
 #include <utility>
 #include "tipos_g.h"
+#include "ALMACEN.h"
+
 using namespace std;
 class ordene_t {
 private:
@@ -19,7 +21,7 @@ private:
     c_Robot rob3;
 public:
     explicit ordene_t(c_Robot _rob,c_Robot _rob2,c_Robot _rob3);
-    void guardar_ordenes(c_Robot &rob);
+    void guardar_ordenes(c_Robot &rob,c_Almacen &alm,string operacion);
     void mostrar_odenes();
 
 };
