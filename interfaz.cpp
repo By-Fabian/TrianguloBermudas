@@ -73,13 +73,17 @@ void crear_almacen() {
     c_Almacen a1(filas,columnas,niveles);                                           //Funcion que creaa el objeto almacen
     /*for(int i=0;i<3;i++) {
         cout << "Login ." << endl;
+        system("cls");
         cout << "Login . ." << endl;
+        system("cls");
         cout << "Login . . ." << endl;
+        system("cls");
     }
+     system("cls");
      */
-    menu();
+    menu(a1);
 }
-void menu(){
+void menu(c_Almacen a1){
     cout<<"Bienvenido al menu interactivo de Triangulo de las Bermudas: "<<endl;
     cout<<"Opciones : "<<endl;
     cout<<"1. Mostrar almacen."<<endl;
@@ -97,31 +101,31 @@ void menu(){
     {
         case 1:
             cout << "Usted ha seleccionado la opcion Mostrar Almacen . . .";cout<<endl;
-            mostraralmacen();
+            mostraralmacen(a1);
             break;
         case 2:
             cout << "Usted ha seleccionado la opción Operacion con Robots . . .";cout<<endl;
-            operacionconrobots();
+            operacionconrobots(a1);
             break;
         case 3:
             cout << "Usted ha seleccionado la opción Reporte . . .";cout<<endl;
-            reporte();
+            reporte(a1);
             break;
         case 4:
             cout << "Usted ha seleccionado la opción Salir . . .";cout<<endl;
-            salir();
+            salir(a1);
             break;
     }
 }
 
-void mostraralmacen() {
+void mostraralmacen(c_Almacen a1) {
     cout<<"Estado de Almacen:"<<endl;
-    //a1.mostraralmacen;                                                                //Funcion que muestra el almacen
+    a1.mostraralmacen;                      //Reemplazar                                                       //Funcion que muestra el almacen
     cout<<"Recuerde que [] representa un robot."<<endl;
     cout<<"Recuerde que P  representa un slot siendo ocupado por un producto;"<<endl;
 }
 
-void operacionconrobots() {
+void operacionconrobots(c_Almacen a1) {
     cout<<"Menu de operaciones con Robots :"<<endl;
     cout<<"Opciones :";
     cout<<"1. Ingresar Producto."<<endl;
@@ -155,7 +159,7 @@ void operacionconrobots() {
 
 }
 
-void reporte() {
+void reporte(c_Almacen a1) {
     int filas = a1.getfilas();        //getfilas
     int columnas = a1.getcolumnas();  //getcolumnas
     int niveles = a1.getNiveles();    //getniveles
@@ -174,7 +178,7 @@ void reporte() {
     or1.mostrar_ordenes();//JP
     salir();
 
-void salir() {
+void salir(c_Almacen a1) {
     cout<<"GRACIAS POR HABER USADO TRIANGULO DE LAS BERMUDAS"<<endl;
     cout<<"PROFESOIR NO NOS JALE :v";
 }
